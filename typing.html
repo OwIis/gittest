@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>typing event- tspn.kr 방식.</title>
+        <style>
+            li{
+                list-style: none;
+            }
+            .typing ul li.on{
+                display: inline-block;
+                animation: cursor;
+                animation-duration: 0.5s;
+                padding-right: 5px;
+                animation-iteration-count: infinite;
+            }
+            @keyframes cursor{
+                0%{
+                    border-right: 1px solid rgba(0, 0, 0, 0);
+                }
+                50%{
+                    border-right: 1px solid rgba(0, 0, 0, 1);
+                }
+                100%{
+                    border-right: 1px solid rgba(0, 0, 0, 0);
+                }
+            }
+        </style>
+        <!-- jq cdn -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            window.onload = function(){
+                var typingBool = false;
+                var typingIdx = 0;
+                var liIndex = 0;
+                var liLength = $(".typing-txt > ul > li").length;
+                
+                var typingTxt = $(".typing-txt > ul > li").eq(liIndex).text()
+                //첫번째 줄 our를 문자 그대로 가져옴
+                typingTxt = typingTxt.split("");
+
+                if(typingBool == false) {
+                    typingBool = true;
+                    var tyInt = setInterval(typing, 100);
+                }
+                //타이핑이 진행되지 않을때 진행시키는 이벤트
+
+                function typing(){
+                    $(".typing ul li").removeClass("on");
+                    $(".typing ul li").eq(liIndex).addClass("on");
+                    
+                    if(typingIdx < typingTxt.length) {
+                        $(".typing ul li").eq(liIndex).append(typingTxt[typingIdx]);
+                        typingIdx++
+                        //원래 our 뒤에 our를 덧붙여주는 이벤트
+                    }else{  //다음줄 넘어가기
+                        if (liIndex < liLength - 1){
+                            //  0   <   2   - 1
+                            liIndex++;
+                            typingIdx = 0;
+                            typingBool = false;
+                            typingTxt = $(".typing-txt ul li").eq(liIndex).text();
+
+                            clearInterval(tyInt);
+                            //멈춰줌. 
+
+                            setTimeout(function() {
+                                tyInt = setInterval(typing, 200);
+                            }, 1000);
+                            console.log(liLength)
+                        }else if (liIndex == liLength -1) {
+
+                            clearInterval(tyInt);
+
+                            
+                            setTimeout(function() { //1초 후
+                                typingBool = false;
+                                liIndex = 0;
+                                typingIdx = -0;
+                                //변수 초기화
+
+                                typingTxt = $(".typing-txt > ul > li").eq(liIndex).text();
+                                //첫번째 문장으로 셋팅
+                                
+                                $(".typing ul li").html("");
+                                //타이핑결과 지우기
+
+                                tyInt = setInterval(typing, 100);
+                                //다시시작
+                            }, 1000);
+                        }
+                    }
+
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="typing-txt">
+                <ul>
+                    <li>our</li>
+                    <li>business</li>
+                </ul>
+            </div>
+            <div class="typing">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
