@@ -15,9 +15,9 @@ a{
 li{
     list-style: none;
 }
-.unerline{
+.underline{
     width: 100%;
-    height: 16px;
+    height: 24px;
     border-bottom: 1px solid black;
 }
 .logo{
@@ -29,6 +29,8 @@ li{
 body{
     width: 100%;
     background-color: #ffffff;
+    position: relative;
+    overflow: auto;
 }
 #wrap{
     width: 1200px;
@@ -101,15 +103,142 @@ main > div.slide > img{
 
 /* conts */
 main> div.conts{
+    width: 100%;
     height: 200px;
+    display: flex;
 }
-.conts > div#tab-menu{}
+main> div.conts > div{
+    width: 33.333333%;
+}
+.conts > div#tab-menu{
+    padding: 5px;
+    position: relative;
+}
+div#tab-menu > #tab-title{
+    display: flex;
+    padding-left: 10px;
+}
+div#tab-menu > #tab-title > div{
+    padding: 10px;
+}
+div#tab-menu > #tab-title > div#notice{
+    background-color: beige;
+}
+div#tab-menu > #tab-title > div#gallery{
+    background-color: #999999;
+}
+
+div#tab-menu > #tab-conts{
+    position: absolute;
+    width: calc(100% - 10px);
+    padding: 20px;
+    background-color: beige;
+}
+div#tab-menu > #tab-conts > #notice-conts{
+    /* display: none; */
+    padding-bottom: 12px;
+}
+
+div#tab-menu > #tab-conts > #gallery-conts{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 110px;
+    display: none;
+}
+
+div#tab-menu > #tab-conts > #gallery-conts > div{
+    width: 33%;
+    padding: 0 calc(1% / 3);
+}
+div#tab-menu > #tab-conts > #gallery-conts > div > img{
+    width: 100%;
+    height: 100%;
+}
+
+/* 배너 */
 .conts > div#banner{}
+.conts > div#banner > img{
+    width: 100%;
+    height: 100%;
+}
+
+/* gopage */
 .conts > div#gopage{}
+.conts > div#gopage > img{
+    width: 100%;
+    height: 100%;
+}
 
-
-
-
+/* footer */
 footer{
     height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+footer > .logo-wrap{
+    width: 20%;
+    padding: 0 30px;
+}
+footer > .logo-wrap > svg{
+    width: 100%;
+}
+
+footer> #copyright{
+    width: 60%;
+    text-align: center;
+}
+
+footer > #sns{
+    width: 20%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+footer > #sns > img{
+    width: 20%;
+}
+
+
+/* 모달창 */
+#popup{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+#popup #popup-cont{
+    width: 500px;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#popup #popup-cont h3{
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+#popup #popup-cont h3 ~ div{
+    width: 100%;
+    padding: 25px;
+    display: table;
+    clear:both;
+}
+#popup #popup-cont h3 ~ div > div:nth-child(1){
+    margin-bottom: 30px;
+}
+#popup #popup-cont h3 ~ div > div:nth-child(1) > p{
+    
+}
+#popup #popup-cont h3 ~ div > div:nth-child(2){
+    float: right;
+    padding: 10px 20px;
+    border: 1px solid;
 }
