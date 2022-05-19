@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.underline{
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px solid;
+}
+html, body{
+    background-color: #ffffff;
+    color: #333333;
+    width: 100%;
+    height: 100%;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+header > div.logo{
+    width: 10%;
+    border-right: 1px dotted;
+}
+header > div.logo > img{
+    width: 200px; 
+    height: 40px;
+}
+header > div#nav-wrap{
+    width: 90%;
+    padding: 10px;
+}
+nav{
+    float: right;
+    display: flex;
+    justify-content: center;
+}
+nav > ul.main{
+    width: 150px;
+    padding: 10px;
+    height: auto;
+}
+nav > ul.main > li.sub{
+    display: none;
+}
+
+
+main{
+    width: 100%;
+    height: 500px;
+}
+main > #slide{
+    height: 300px;
+    overflow: hidden;
+}
+main > #slide img{
+    width: 100%;
+    transform: translateX(-100%);
+}
+
+main > #cont {
+    height: 200px;
+    display: flex;
+}
+main > #cont > div {
+    width: 33.333333%;
+    height: 100%;
+}
+#cont1{
+    padding: 3px;
+    height: 100%;
+}
+#cont1 > div#title{
+    padding-left: 10px;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+#cont1 > div#title > div {
+    padding: 10px;
+    border: 1px solid;
+    border-bottom: 1px transparent;
+}
+#cont1 > div#title > .notice{
+    background-color: white;
+}
+#cont1 > div#title > .gallery{
+    background-color: #a0a0a0;
+}
+
+#cont1 > div:nth-of-type(2) > div{
+    border: 1px solid;
+    padding: 10px;
+}
+#cont1 > div:nth-of-type(2) > .notice{}
+#cont1 > div:nth-of-type(2) > .gallery{
+    display: flex;
+    justify-content: space-around;
+    display: none;
+}
+#cont1 > div:nth-of-type(2) > .gallery > img{
+    width: 33%;
+}
+
+#cont2{
+    height: 100%;
+}
+#cont2 > img{
+    width: 100%; 
+    height: 100%;
+}
+
+#cont3{
+    height: 100%;
+}
+#cont3 > img{
+    width: 100%; 
+    height: 100%;
+}
+
+footer{
+    width : 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+footer > .logo{
+    width: 10%;
+}
+footer > .logo > img{
+    width: 100%;
+    height: 100%;
+}
+footer > div:nth-of-type(2){
+    width: 90%;
+    height: 100%;
+}
+footer > div:nth-of-type(2) > div{
+    height: 50%;
+}
+
+
+
+/* 모달창 */
+#popup{
+    display: none;
+}
