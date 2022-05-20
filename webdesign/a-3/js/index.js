@@ -49,21 +49,33 @@ $(function() {
     //silde fadein out
     var now = 0;
     var imgs = 3;
-    $("#slide img").eq(0).siblings().hide();
+    //$("#slide img").eq(0).siblings().hide();
     //해당 영역 이외의 것들은  display: none 상태임.
     function slide(){
-        if(now >= imgs){
-            $("#slide img").eq(0).fadeIn(1000);
-            $("#slide img").eq(now).fadeOut(2000);
-            now = 0;
-        }else{
-            $("#slide img").eq(now).fadeIn(1000);
-            $("#slide img").eq(now).fadeOut(2000);
+        console.log(now)
+        $("#slide img").eq(now).fadeIn(1000);
+        setTimeout(function(){
+            $("#slide img").eq(now).fadeOut(1000);
             now++;
-        }
+            if(now >=3){
+                now = 0;
+            }
+            console.log(now)
+        }, 2000);
+        // if(now >= imgs){
+        //     $("#slide img").eq(0).fadeIn(1000);
+        //     $("#slide img").eq(now).fadeOut(2000);
+        //     now = 0;
+        // }else{
+        //     $("#slide img").eq(now).fadeIn(1000);
+        //     $("#slide img").eq(now).fadeOut(2000);
+        //     now++;
+        // }
     };
     slide();
-    setInterval(slide, 3000);
+    setInterval(function(){
+        slide();
+    }, 3000);
 
 
     //modal
