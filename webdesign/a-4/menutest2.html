@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        #gnb{
+            border: 1px dotted red;
+        }
+        nav{
+            width: 100%;
+        }
+        nav  > div{
+            display : flex;
+            text-align: center;
+            align-items: center;
+        }
+        nav> div#main{
+            width: 50%;
+            background-color: cyan;
+        }
+        nav > div#main ul{
+            width: 100px;
+            border: 1px solid;
+        }
+        #sub{
+            width: 100%;
+        }
+        #sub{
+            background-color: lightgreen;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer;
+            transition: 1s;
+        }
+        #sub > ul{
+            width: 100px; 
+        }
+        #sub > ul > li{
+            border: 1px solid;
+        }
+    </style>
+      <script src="js/jq-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $("#main").on("mouseenter",function(){
+                $("#sub").css({
+                    "opacity": "1",
+                    "visibility" : "visible",
+                    "display" : "flex"
+                })
+            })
+            
+            $("#sub").on("mouseleave", function(){
+                $("#sub").css({
+                    "opacity": "0",
+                    "visibility" : "hidden"
+                })
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <div id="gnb">
+        <nav>
+            <div id="main" class="main">
+                <ul>
+                    <li>메뉴1번</li>
+                </ul>
+                <ul>
+                    <li>메뉴2번</li>
+                </ul>
+                <ul>
+                    <li>메뉴3번</li>
+                </ul>
+                <ul>
+                    <li>메뉴4번</li>
+                </ul>
+            </div>
+            <div id="sub">
+                <ul>
+                    <li>서브1-1</li>
+                    <li>서브1-2</li>
+                    <li>서브1-3</li>
+                    <li>서브1-4</li>
+                </ul>
+                <ul>
+                    <li>서브2-1</li>
+                    <li>서브2-2</li>
+                    <li>서브2-3</li>
+                    <li>서브2-4</li>
+                </ul>
+                <ul>
+                    <li>서브3-1</li>
+                    <li>서브3-2</li>
+                    <li>서브3-3</li>
+                    <li>서브3-4</li>
+                </ul>
+                <ul>
+                    <li>서브4-1</li>
+                    <li>서브4-2</li>
+                    <li>서브4-3</li>
+                    <li>서브4-4</li>
+                </ul>
+            </div>
+        </nav>
+        
+    </div>
+</body>
+</html>
